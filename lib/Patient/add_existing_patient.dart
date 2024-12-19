@@ -1,3 +1,4 @@
+import '../MainScreen/Dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -20,13 +21,13 @@ class AddExistingPatient extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset("assets/images/patients.png"),
-                  SizedBox(height: 20),
+                  SizedBox(height: getFontSize(20, context)),
                   Text(
                     "No patients found",
-                    style: TextStyle(color: Colors.grey, fontSize: 16),
+                    style: TextStyle(color: Colors.grey, fontSize: getFontSize(16, context)),
                   ),
                   Text("Click on the search bar to look for patients",
-                      style: TextStyle(color: Colors.grey, fontSize: 16)),
+                      style: TextStyle(color: Colors.grey, fontSize: getFontSize(16, context))),
                 ],
               ),
             )
@@ -49,8 +50,8 @@ class AddExistingPatient extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Container(
-                                  width: 98,
-                                  height: 98,
+                                  width: getFontSize(98, context),
+                                  height: getFontSize(98, context),
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     color: Colors.blue.shade100,
@@ -60,19 +61,19 @@ class AddExistingPatient extends StatelessWidget {
                                     child: SvgPicture.asset(
                                         "assets/images/checked.svg"),
                                   )),
-                              SizedBox(height: 30),
+                              SizedBox(height: getFontSize(30, context)),
                               SizedBox(
-                                width: 156,
-                                height: 45,
+                                width: getFontSize(156, context),
+                                height: getFontSize(45, context),
                                 child: Text(
                                   'Request sent to $contact',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: getFontSize(16, context),
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 20),
+                              SizedBox(height: getFontSize(20, context)),
                               SizedBox(
                                 width: double.infinity,
                                 child: ElevatedButton(

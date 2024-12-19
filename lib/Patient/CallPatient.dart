@@ -1,3 +1,4 @@
+import '../MainScreen/Dashboard.dart';
 import 'package:flutter/material.dart';
 
 class CallingUi extends StatefulWidget {
@@ -16,22 +17,22 @@ class _CallingUiState extends State<CallingUi> {
             padding: EdgeInsets.all(16),
         child: Column(
           children: [
-            SizedBox(height: 70,),
+            SizedBox(height: getFontSize(70, context),),
             SizedBox(
-            width: 108,
-            height: 108,
+            width: getFontSize(108, context),
+            height: getFontSize(108, context),
             child:
             CircleAvatar(
               radius: 50,
               backgroundImage: AssetImage('assets/images/doc.png'),
             )
             ),
-            SizedBox(height: 20,),
-            Text('Dr. Nelson Yang', style: TextStyle(fontSize: 16),)
-            ,Text('Calling', style: TextStyle(fontSize: 16, color: Colors.black26),)
+            SizedBox(height: getFontSize(20, context),),
+            Text('Dr. Nelson Yang', style: TextStyle(fontSize: getFontSize(16, context)),)
+            ,Text('Calling', style: TextStyle(fontSize: getFontSize(16, context), color: Colors.black26),)
 
             ,Spacer(),
-            Padding(padding: EdgeInsets.only(left: 35, right: 35),
+            Padding(padding: EdgeInsets.only(left: getFontSize(35, context), right: getFontSize(35, context)),
             child:
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -40,8 +41,8 @@ class _CallingUiState extends State<CallingUi> {
                   icon: Icons.volume_up,
                 ),
             Container(
-              width: 62,
-              height: 62,
+              width: getFontSize(62, context),
+              height: getFontSize(62, context),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.red,
@@ -54,7 +55,7 @@ class _CallingUiState extends State<CallingUi> {
               ],
             ),
             ),
-            SizedBox(height: 50,),
+            SizedBox(height: getFontSize(50, context),),
           ],
         )
         )
@@ -66,8 +67,8 @@ class _CallingUiState extends State<CallingUi> {
     required IconData icon})
   {
     return Container(
-      width: 62,
-      height: 62,
+      width: getFontSize(62, context),
+      height: getFontSize(62, context),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: Color(0xffE2EDFF),

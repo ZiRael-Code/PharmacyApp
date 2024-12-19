@@ -1,7 +1,8 @@
+import 'package:pharmacy_app/add%20patients/add_patients_main.dart';
+
+import '../MainScreen/Dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
-import 'add_a_patient.dart';
 
 class SearchPatient extends StatefulWidget {
   SearchPatient({super.key});
@@ -11,8 +12,7 @@ class SearchPatient extends StatefulWidget {
 }
 
 class _SearchPatientState extends State<SearchPatient> {
-
- TextEditingController controller = TextEditingController();
+  TextEditingController controller = TextEditingController();
 
   final List<String> names = [
     "Richard Ferguson",
@@ -36,39 +36,40 @@ class _SearchPatientState extends State<SearchPatient> {
         title: Row(
           children: [
             Container(
-              width: 35,
-              height: 35,
+              width: getFontSize(35, context),
+              height: getFontSize(35, context),
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
                 color: Color(0xFFE5E5E5),
               ),
-              child: SvgPicture.asset('assets/images/back.svg',
-                width: 8.0,
-                height: 15,),
+              child: SvgPicture.asset(
+                'assets/images/back.svg',
+                width: getFontSize(8.0, context),
+                height: getFontSize(15, context),
+              ),
             ),
             Spacer(),
             Container(
               alignment: Alignment.center,
-              child:
-              Center(child: Text(
-                'Search patient',
-                style: TextStyle(
-                    fontSize: 20,
-                    fontStyle: FontStyle.normal
+              child: Center(
+                child: Text(
+                  'Search patient',
+                  style: TextStyle(
+                      fontSize: getFontSize(20, context),
+                      fontStyle: FontStyle.normal),
                 ),
-              ),
               ),
             ),
             Spacer(),
           ],
         ),
       ),
-      body: Padding(padding: EdgeInsets.all(16),
-      child: Column(
-          children: [
+      body: Padding(
+          padding: EdgeInsets.all(16),
+          child: Column(children: [
             Container(
-              padding: EdgeInsets.only(right: 10),
+              padding: EdgeInsets.only(right: getFontSize(10, context)),
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 color: Colors.grey[200],
@@ -78,7 +79,7 @@ class _SearchPatientState extends State<SearchPatient> {
                 onChanged: (value) {
                   setState(() {
                     query = value;
-                    if (filteredNames.isEmpty){
+                    if (filteredNames.isEmpty) {
                       setState(() {
                         showAddPatient = true;
                       });
@@ -92,108 +93,114 @@ class _SearchPatientState extends State<SearchPatient> {
                   prefixIcon: Icon(Icons.search, color: Colors.grey[300]),
                   suffixIcon: query.isNotEmpty
                       ? IconButton(
-                    icon: Icon(Icons.clear, color: Colors.black54),
-                    onPressed: () {
-                      setState(() {
-                        query = ""; // Clear the search query
-                        controller.text = "";
-                      });
-                    },
-                  )
+                          icon: Icon(Icons.clear, color: Colors.black54),
+                          onPressed: () {
+                            setState(() {
+                              query = ""; // Clear the search query
+                              controller.text = "";
+                            });
+                          },
+                        )
                       : null,
                   border: InputBorder.none,
-                  contentPadding: EdgeInsets.symmetric(vertical: 15),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: getFontSize(15, context)),
                 ),
               ),
             ),
 
-            SizedBox(height: 16),
+            SizedBox(height: getFontSize(16, context)),
             Visibility(
               visible: controller.text.isNotEmpty,
-              child:
-            Expanded(
-              child: ListView.builder(
-                itemCount: filteredNames.length,
-                itemBuilder: (context, index) {
-                  String name = filteredNames[index];
-                  return ListTile(
-                    leading: Icon(Icons.search, color: Colors.black54),
-                    title: Text(
-                      name,
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    onTap: () {
-                      controller.text = name;
+              child: Expanded(
+                child: ListView.builder(
+                  itemCount: filteredNames.length,
+                  itemBuilder: (context, index) {
+                    String name = filteredNames[index];
+                    return ListTile(
+                      leading: Icon(Icons.search, color: Colors.black54),
+                      title: Text(
+                        name,
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      onTap: () {
+                        controller.text = name;
 
-                      // Handle item tap (if needed)
-                      print("Tapped on $name");
-                    },
-                  );
-                },
+                        // Handle item tap (if needed)
+                        print("Tapped on $name");
+                      },
+                    );
+                  },
+                ),
               ),
-            ),
             ),
             // Search results
 
-
-           controller.text.isEmpty ? Column(children: [
-              SizedBox(height: 60,),
-            SvgPicture.asset('assets/images/searchname.svg'),
-            SizedBox(
-              width: 260,
-                child: Text(textAlign: TextAlign.center, "Start typing a patient’s name or phone number to search for them. Only patients you’ve added will show up here."),
-            ),
-              ]
-            )
-
-              :
-          Container(),
-
-
-            filteredNames.isEmpty && controller.text.isNotEmpty ? Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text("No users were found.", style: TextStyle(fontSize: 14),),
-                SizedBox(height: 12,),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (builder)=> AddAPatient()));
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(9),
+            controller.text.isEmpty
+                ? Column(children: [
+                    SizedBox(
+                      height: getFontSize(60, context),
                     ),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 7.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(
-                          Icons.add,
-                          color: Colors.white,
-                          size: 16,
-                        ),
-                        SizedBox(width: 8),
-                        Text(
-                          'Add a new patient',
-                          style: TextStyle(color: Colors.white, fontSize: 12),
-                        ),
-                      ],
+                    SvgPicture.asset('assets/images/searchname.svg'),
+                    SizedBox(
+                      width: getFontSize(260, context),
+                      child: Text(
+                          textAlign: TextAlign.center,
+                          "Start typing a patient’s name or phone number to search for them. Only patients you’ve added will show up here."),
                     ),
-                  ),
-                ),
+                  ])
+                : Container(),
 
-              ],
-            )
-                :
-                Container()
-
-    ]
-    )
-      ),
+            filteredNames.isEmpty && controller.text.isNotEmpty
+                ? Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "No users were found.",
+                        style: TextStyle(fontSize: getFontSize(14, context)),
+                      ),
+                      SizedBox(
+                        height: getFontSize(12, context),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (builder) => AddAPatient()));
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(9),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              vertical: getFontSize(12.0, context),
+                              horizontal: getFontSize(7.0, context)),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.add,
+                                color: Colors.white,
+                                size: getFontSize(16, context),
+                              ),
+                              SizedBox(width: getFontSize(8, context)),
+                              Text(
+                                'Add a new patient',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: getFontSize(12, context)),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                : Container()
+          ])),
     );
   }
 }

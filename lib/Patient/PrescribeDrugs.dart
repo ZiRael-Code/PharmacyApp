@@ -1,3 +1,4 @@
+import '../MainScreen/Dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -8,9 +9,12 @@ void main() {
   runApp(PrescribeDrugs());
 }
 
-class PrescribeDrugs extends StatelessWidget {
-  PrescribeDrugs({super.key});
+class PrescribeDrugs extends StatefulWidget {
+  @override
+  _PrescribeDrugsState createState() => _PrescribeDrugsState();
+}
 
+class _PrescribeDrugsState extends State<PrescribeDrugs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,16 +23,16 @@ class PrescribeDrugs extends StatelessWidget {
           title: Row(
             children: [
               Container(
-                width: 35,
-                height: 35,
+                width: getFontSize(35, context),
+                height: getFontSize(35, context),
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   color: Color(0xFFE5E5E5),
                 ),
                 child: SvgPicture.asset('assets/images/back.svg',
-                  width: 8.0,
-                  height: 15,),
+                  width: getFontSize(8.0, context),
+                  height: getFontSize(15, context),),
               ),
               Spacer(),
               Container(
@@ -37,7 +41,7 @@ class PrescribeDrugs extends StatelessWidget {
                 Text(
                   'Prescribe drugs',
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: getFontSize(20, context),
                       fontStyle: FontStyle.normal,
                       fontWeight: FontWeight.bold
                   ),
@@ -87,7 +91,6 @@ class PrescribeDrugs extends StatelessWidget {
         ),
     );
   }
-}
 
 fundMethod (
     {
@@ -101,19 +104,19 @@ fundMethod (
     child: Container(
       padding: EdgeInsets.all(12),
       width: double.infinity,
-      height: 74,
+      height: getFontSize(74, context),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
           color: Color(0xFFE5E5E5),
-          width: 0.5,
+          width: getFontSize(0.5, context),
         ),
       ),
       child: Row(children: [
         Container(
-          width: 42,
-          height: 42,
+          width: getFontSize(42, context),
+          height: getFontSize(42, context),
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: Color(0xFFE2EDFF),
@@ -121,7 +124,7 @@ fundMethod (
           ),
           child: imagePath,
         ),
-        SizedBox(width: 25,),
+        SizedBox(width: getFontSize(25, context),),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -130,15 +133,15 @@ fundMethod (
           text,
           style: TextStyle(
             color: Color(0xFF2E2E42),
-            fontSize: 16,
+            fontSize: getFontSize(16, context),
           ),
         ),
-         bottom != null ? SizedBox(height: 5,) : Container(),
+         bottom != null ? SizedBox(height: getFontSize(5, context),) : Container(),
           bottom != null ? Text(
             bottom,
             style: TextStyle(
               color: Color(0xFF959595),
-              fontSize: 12,
+              fontSize: getFontSize(12, context),
             ),
           )
           : Container()
@@ -148,4 +151,5 @@ fundMethod (
       ],),
     ),
   );
+}
 }

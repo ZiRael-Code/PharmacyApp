@@ -1,3 +1,4 @@
+import '../MainScreen/Dashboard.dart';
 import 'package:flutter/cupertino.dart';
 
 class SearchForPatients extends StatefulWidget {
@@ -9,6 +10,6 @@ class SearchForPatients extends StatefulWidget {
 class _SearchForPatientState extends State<SearchForPatients> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Placeholder();
   }
 }

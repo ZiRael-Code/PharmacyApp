@@ -1,11 +1,18 @@
+import '../MainScreen/Dashboard.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'PrescribeDrugsViewAll.dart';
 
-class PrescribeDrugsAddDrugs extends StatelessWidget {
+class PrescribeDrugsAddDrugs extends StatefulWidget{
   PrescribeDrugsAddDrugs({super.key});
+
+  @override
+  _PrescribeDrugsAddDrugsState createState() => _PrescribeDrugsAddDrugsState();
+}
+
+class _PrescribeDrugsAddDrugsState extends State<PrescribeDrugsAddDrugs> {
 
   @override
   Widget build(BuildContext context) {
@@ -15,16 +22,16 @@ class PrescribeDrugsAddDrugs extends StatelessWidget {
           title: Row(
             children: [
               Container(
-                width: 35,
-                height: 35,
+                width: getFontSize(35, context),
+                height: getFontSize(35, context),
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   color: Color(0xFFE5E5E5),
                 ),
                 child: SvgPicture.asset('assets/images/back.svg',
-                  width: 8.0,
-                  height: 15,),
+                  width: getFontSize(8.0, context),
+                  height: getFontSize(15, context),),
               ),
               Spacer(),
               Container(
@@ -33,7 +40,7 @@ class PrescribeDrugsAddDrugs extends StatelessWidget {
                 Text(
                   'Prescribe drugs',
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: getFontSize(20, context),
                       fontStyle: FontStyle.normal,
                       fontWeight: FontWeight.bold
                   ),
@@ -74,13 +81,13 @@ class PrescribeDrugsAddDrugs extends StatelessWidget {
                 label: 'Quantity',
                 hint: 'e.g 2 sachets or 1 pack ',
                 leftIcon: true,
-                  width: 150.0
+                  width: getFontSize(150.0, context)
               ),
                 inputField2(
                 label: 'Frequency',
                 hint: 'e.g 2 sachets or 1 pack ',
                 leftIcon: true,
-                  width: 150.0
+                  width: getFontSize(150.0, context)
               ),
                ],
             ),
@@ -90,7 +97,7 @@ class PrescribeDrugsAddDrugs extends StatelessWidget {
               maxLength: 4,
               leftIcon: false,
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: getFontSize(10, context),),
 
                 Align(
                   child:
@@ -102,9 +109,9 @@ class PrescribeDrugsAddDrugs extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Icon(Icons.add_circle_outline,color: Colors.blue,),
-                        SizedBox(width: 8,),
-                        Text('Add Prescription', style: TextStyle(fontSize: 14, color: Colors.blue)),
-                        SizedBox(width: 6,),
+                        SizedBox(width: getFontSize(8, context),),
+                        Text('Add Prescription', style: TextStyle(fontSize: getFontSize(14, context), color: Colors.blue)),
+                        SizedBox(width: getFontSize(6, context),),
                       ]
                   ),
                   ),
@@ -122,10 +129,10 @@ class PrescribeDrugsAddDrugs extends StatelessWidget {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 24.0),
+                padding: EdgeInsets.symmetric(vertical: getFontSize(12.0, context), horizontal: getFontSize(24.0, context)),
                 child: Text(
                   'Continue',
-                  style: TextStyle(color: Colors.white, fontSize: 18),
+                  style: TextStyle(color: Colors.white, fontSize: getFontSize(18, context)),
                 ),
               ),
             ),
@@ -146,8 +153,8 @@ class PrescribeDrugsAddDrugs extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: TextStyle(fontSize: 16),),
-        SizedBox(height: 10,),
+        Text(label, style: TextStyle(fontSize: getFontSize(16, context)),),
+        SizedBox(height: getFontSize(10, context),),
 
         TextField(
           decoration: InputDecoration(
@@ -159,21 +166,21 @@ class PrescribeDrugsAddDrugs extends StatelessWidget {
               borderRadius: BorderRadius.circular(12), // Circular border radius
               borderSide: BorderSide(
                 color: Colors.grey.shade300, // Light gray border
-                width: 1, // Border thickness
+                width: getFontSize(1, context), // Border thickness
               ),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
               borderSide: BorderSide(
                 color: Colors.grey.shade300,
-                width: 1,
+                width: getFontSize(1, context),
               ),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
               borderSide: BorderSide(
                 color: Colors.grey.shade400,
-                width: 1.5,
+                width: getFontSize(1.5, context),
               ),
             ),
             suffixIcon: leftIcon
@@ -189,11 +196,10 @@ class PrescribeDrugsAddDrugs extends StatelessWidget {
           maxLines: maxLength, // Ensures single-line input
         ),
 
-        SizedBox(height: 15,), // Additional vertical space between fields
+        SizedBox(height: getFontSize(15, context),), // Additional vertical space between fields
       ],
     );
   }
-}
 
 inputField2({
   required String label,
@@ -206,9 +212,9 @@ inputField2({
     children: [
       Text(
         label,
-        style: TextStyle(fontSize: 16),
+        style: TextStyle(fontSize: getFontSize(16, context)),
       ),
-      SizedBox(height: 10),
+      SizedBox(height: getFontSize(10, context)),
       Container(
         width: width, // Set the fixed width
         decoration: BoxDecoration(
@@ -216,7 +222,7 @@ inputField2({
           borderRadius: BorderRadius.circular(12), // Circular border radius
           border: Border.all(
             color: Colors.grey.shade300, // Light gray border
-            width: 1, // Border thickness
+            width: getFontSize(1, context), // Border thickness
           ),
         ),
         child: Row(
@@ -229,7 +235,7 @@ inputField2({
                   hintStyle: TextStyle(color: Colors.black26),
                   border: InputBorder.none, // Remove default TextField border
                   contentPadding: EdgeInsets.symmetric(
-                    vertical: 14,
+                    vertical: getFontSize(14, context),
                     horizontal: leftIcon ? 8 : 14,
                   ), // Add padding inside the container
                 ),
@@ -237,7 +243,7 @@ inputField2({
             ),
             if (leftIcon) // Optionally display the suffix icon
               Padding(
-                padding: EdgeInsets.only(right: 8.0),
+                padding: EdgeInsets.only(right: getFontSize(8.0, context)),
                 child: Icon(
                   Icons.keyboard_arrow_down_sharp,
                   color: Colors.black45,
@@ -246,7 +252,8 @@ inputField2({
           ],
         ),
       ),
-      SizedBox(height: 15), // Additional vertical space between fields
+      SizedBox(height: getFontSize(15, context)), // Additional vertical space between fields
     ],
   );
+}
 }

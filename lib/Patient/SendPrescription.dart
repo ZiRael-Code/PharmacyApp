@@ -1,3 +1,4 @@
+import '../MainScreen/Dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -7,8 +8,14 @@ void main() {
   runApp(SendPrescription());
 }
 
-class SendPrescription extends StatelessWidget {
-  SendPrescription({super.key});
+
+
+class SendPrescription extends StatefulWidget {
+  @override
+  _SendPrescriptionState createState() => _SendPrescriptionState();
+}
+
+class _SendPrescriptionState extends State<SendPrescription> {
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +25,16 @@ class SendPrescription extends StatelessWidget {
           title: Row(
             children: [
               Container(
-                width: 35,
-                height: 35,
+                width: getFontSize(35, context),
+                height: getFontSize(35, context),
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   color: Color(0xFFE5E5E5),
                 ),
                 child: SvgPicture.asset('assets/images/back.svg',
-                  width: 8.0,
-                  height: 15,),
+                  width: getFontSize(8.0, context),
+                  height: getFontSize(15, context),),
               ),
               Spacer(),
               Container(
@@ -36,7 +43,7 @@ class SendPrescription extends StatelessWidget {
                 Text(
                   'Send prescription',
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: getFontSize(20, context),
                       fontStyle: FontStyle.normal,
                       fontWeight: FontWeight.bold
                   ),
@@ -51,7 +58,7 @@ class SendPrescription extends StatelessWidget {
           child: Column(
           children: [
 
-            SizedBox(height: 20,),
+            SizedBox(height: getFontSize(20, context),),
 
             Wrap(
               direction: Axis.horizontal,
@@ -63,7 +70,7 @@ class SendPrescription extends StatelessWidget {
                     Text("12/06/2022 - Prescriptions"),
                   ],
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: getFontSize(30, context)),
                 Row(
                   children: [
                     Text("Prescribed by:", style: TextStyle(color: Colors.black45)),
@@ -71,7 +78,7 @@ class SendPrescription extends StatelessWidget {
                     Text("Dr. Muiz Sanni", ),
                   ],
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: getFontSize(30, context)),
                 Row(
                   children: [
                     Text("For:", style: TextStyle(color: Colors.black45)),
@@ -79,7 +86,7 @@ class SendPrescription extends StatelessWidget {
                     Text("Janet Okoli"),
                   ],
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: getFontSize(30, context)),
                 Row(
                   children: [
                     Text("Date:", style: TextStyle(color: Colors.black45),),
@@ -89,7 +96,7 @@ class SendPrescription extends StatelessWidget {
                 ),
               ],
             ),
-              SizedBox(height: 25,),
+              SizedBox(height: getFontSize(25, context),),
 
 
 
@@ -100,7 +107,7 @@ class SendPrescription extends StatelessWidget {
               drugUnit: '1 pack:  '
             ),
 
-            SizedBox(height: 20,),
+            SizedBox(height: getFontSize(20, context),),
 
 
             Spacer(),
@@ -118,9 +125,9 @@ class SendPrescription extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Icon(Icons.info, color: Colors.black45,),
-                  SizedBox(width: 10),
+                  SizedBox(width: getFontSize(10, context)),
                   SizedBox(
-                      width: 250,
+                      width: getFontSize(250, context),
                       child:
                       Text("Prescription will be sent to patient as a message", softWrap: true,)
                   ),
@@ -128,7 +135,7 @@ class SendPrescription extends StatelessWidget {
               ),
             ),
 
-            SizedBox(height: 40,),
+            SizedBox(height: getFontSize(40, context),),
 
             ElevatedButton(
               onPressed: () {
@@ -142,10 +149,10 @@ class SendPrescription extends StatelessWidget {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 24.0),
+                padding: EdgeInsets.symmetric(vertical: getFontSize(12.0, context), horizontal: getFontSize(24.0, context)),
                 child: Text(
                   'Send',
-                  style: TextStyle(color: Colors.white, fontSize: 18),
+                  style: TextStyle(color: Colors.white, fontSize: getFontSize(18, context)),
                 ),
               ),
             ),
@@ -165,15 +172,15 @@ class SendPrescription extends StatelessWidget {
       padding: EdgeInsets.all(12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colors.grey.shade200, width: 1),
+        border: Border.all(color: Colors.grey.shade200, width: getFontSize(1, context)),
       ),
         child: Row(
           children: [
       Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-          Text(name, style: TextStyle(fontSize: 18)),
-            SizedBox(height: 10,),
+          Text(name, style: TextStyle(fontSize: getFontSize(18, context))),
+            SizedBox(height: getFontSize(10, context),),
           Row(
           children: [
             Text(drugUnit, style: TextStyle(color: Colors.grey[500]),),

@@ -1,3 +1,4 @@
+import '../MainScreen/Dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -11,17 +12,17 @@ class SendInvitesSuccessPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 25),
+          padding: EdgeInsets.symmetric(horizontal: getFontSize(25, context)),
           child: Column(
             children: [
-              SizedBox(height: 40),
+              SizedBox(height: getFontSize(40, context)),
               Row(
                 children: [
                   GestureDetector(
                     onTap: () => Navigator.pop(context),
                     child: Container(
-                      width: 35,
-                      height: 35,
+                      width: getFontSize(35, context),
+                      height: getFontSize(35, context),
                       padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
@@ -29,41 +30,41 @@ class SendInvitesSuccessPage extends StatelessWidget {
                       ),
                       child: SvgPicture.asset(
                         'assets/images/back.svg',
-                        width: 8.0,
-                        height: 15,
+                        width: getFontSize(8.0, context),
+                        height: getFontSize(15, context),
                       ),
                     ),
                   ),
-                  SizedBox(width: 100),
+                  SizedBox(width: getFontSize(100, context)),
                   Center(
                     child: Text(
                       "Success",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 20,
+                        fontSize: getFontSize(20, context),
                       ),
                     ),
                   ),
                 ],
               ),
               SizedBox(
-                height: 120,
+                height: getFontSize(120, context),
               ),
               SizedBox(
-                width: 260,
-                height: 71,
+                width: getFontSize(260, context),
+                height: getFontSize(71, context),
                 child: Text(
                   textAlign: TextAlign.center,
                   "You have successfully sent invitation links, when they sign up, you get a commission.",
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: getFontSize(16, context),
                   ),
                 ),
               ),
               Spacer(),
               MyBlueButton(text: "Done"),
               SizedBox(
-                height: 30,
+                height: getFontSize(30, context),
               )
             ],
           ),

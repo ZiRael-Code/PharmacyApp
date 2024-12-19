@@ -1,3 +1,4 @@
+import '../MainScreen/Dashboard.dart';
 import 'package:flutter/material.dart';
 
 List<int> generateCalendarDays(int month) {
@@ -84,7 +85,7 @@ class _DrugComplianceState extends State<DrugCompliance> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-          child: Padding(padding: EdgeInsets.only(left: 5, right: 5),
+          child: Padding(padding: EdgeInsets.only(left: getFontSize(5, context), right: getFontSize(5, context)),
     child: SingleChildScrollView(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -109,12 +110,12 @@ class _DrugComplianceState extends State<DrugCompliance> {
                 color: Colors.blue,
                 borderRadius: BorderRadius.circular(50),
               ),
-              child: Icon(Icons.arrow_back_ios_new_outlined, size: 16, color: Colors.white,),
+              child: Icon(Icons.arrow_back_ios_new_outlined, size: getFontSize(16, context), color: Colors.white,),
             ),
             ),
-            SizedBox(width: 12,),
-            Text(monthNames[current_month-1].toString(), style: TextStyle(fontSize: 16),),
-            SizedBox(width: 12,),
+            SizedBox(width: getFontSize(12, context),),
+            Text(monthNames[current_month-1].toString(), style: TextStyle(fontSize: getFontSize(16, context)),),
+            SizedBox(width: getFontSize(12, context),),
            GestureDetector(
               onTap: () {
                 setState(() {
@@ -130,12 +131,12 @@ class _DrugComplianceState extends State<DrugCompliance> {
                 color: Colors.blue,
                 borderRadius: BorderRadius.circular(50),
               ),
-              child: Icon(Icons.arrow_forward_ios_rounded, size: 16, color: Colors.white,),
+              child: Icon(Icons.arrow_forward_ios_rounded, size: getFontSize(16, context), color: Colors.white,),
             )
             )
           ],
         ),
-        SizedBox(height: 25,),
+        SizedBox(height: getFontSize(25, context),),
 
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -143,15 +144,15 @@ class _DrugComplianceState extends State<DrugCompliance> {
             return Container(
 
               alignment: Alignment.center,
-              width: 44,
+              width: getFontSize(44, context),
                 child: Text(
                 day,
-                style: TextStyle(color: Colors.grey.shade600, fontSize: 12),
+                style: TextStyle(color: Colors.grey.shade600, fontSize: getFontSize(12, context)),
               )
               );
           }).toList(),
         ),
-        SizedBox(height: 8),
+        SizedBox(height: getFontSize(8, context)),
 
       Center(child:  Wrap(
         children:
@@ -167,8 +168,8 @@ class _DrugComplianceState extends State<DrugCompliance> {
             for (var usedMed in usedMedsDays) {
               if (usedMed['day'] == day && !styledIndices.contains(index)) {
                 lol = Container(
-                  width: 44,
-                  height: 53,
+                  width: getFontSize(44, context),
+                  height: getFontSize(53, context),
                   margin: EdgeInsets.all(4),
                   decoration: BoxDecoration(
                     color: Color(0xffE2EDFF),
@@ -177,13 +178,13 @@ class _DrugComplianceState extends State<DrugCompliance> {
                   ),
                   child: Stack(children: [
                     Positioned(
-                      top: 4,
-                      right: 4,
+                      top: getFontSize(4, context),
+                      right: getFontSize(4, context),
                         child: Container(
-                          width: 10,
-                          height: 10,
+                          width: getFontSize(10, context),
+                          height: getFontSize(10, context),
                           decoration: BoxDecoration(
-                            border: Border.all(width: 2, color: Colors.white),
+                            border: Border.all(width: getFontSize(2, context), color: Colors.white),
                             borderRadius: BorderRadius.circular(50),
                             color: usedMed['indicator'],
                           ),
@@ -193,7 +194,7 @@ class _DrugComplianceState extends State<DrugCompliance> {
                       alignment: Alignment.center,
                       child: Text(
                       '$day',
-                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: getFontSize(22, context), fontWeight: FontWeight.bold),
                     ),
                     ),
                   ],)
@@ -206,8 +207,8 @@ class _DrugComplianceState extends State<DrugCompliance> {
 
             if (!found) {
               lol = Container(
-                width: 44,
-                height: 53,
+                width: getFontSize(44, context),
+                height: getFontSize(53, context),
                 alignment: Alignment.center,
                 margin: EdgeInsets.all(4),
                 decoration: BoxDecoration(
@@ -215,7 +216,7 @@ class _DrugComplianceState extends State<DrugCompliance> {
                 ),
                 child: Text(
                   '$day',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black26),
+                  style: TextStyle(fontSize: getFontSize(22, context), fontWeight: FontWeight.bold, color: Colors.black26),
                 ),
               );
             }
@@ -226,62 +227,62 @@ class _DrugComplianceState extends State<DrugCompliance> {
 
     )
       ),
-        SizedBox(height: 25,),
+        SizedBox(height: getFontSize(25, context),),
         Column(
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: 10,
-                  height: 10,
+                  width: getFontSize(10, context),
+                  height: getFontSize(10, context),
                   decoration: BoxDecoration(
                     color: Color(0xffFF6161),
                     borderRadius: BorderRadius.circular(50),
                   ),
                 ),
-                SizedBox(width: 12),
+                SizedBox(width: getFontSize(12, context)),
                 Text(
                   "The medications were not taken that day ",
-                  style: TextStyle(fontSize: 14),
+                  style: TextStyle(fontSize: getFontSize(14, context)),
                 ),
               ],
             ),
-            SizedBox(height: 8),
+            SizedBox(height: getFontSize(8, context)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: 10,
-                  height: 10,
+                  width: getFontSize(10, context),
+                  height: getFontSize(10, context),
                   decoration: BoxDecoration(
                     color: Color(0xffFFA135),
                     borderRadius: BorderRadius.circular(50),
                   ),
                 ),
-                SizedBox(width: 12),
+                SizedBox(width: getFontSize(12, context)),
                 Text(
                   "Some of the medications were taken that day ",
-                  style: TextStyle(fontSize: 14),
+                  style: TextStyle(fontSize: getFontSize(14, context)),
                 ),
               ],
             ),
-            SizedBox(height: 8),
+            SizedBox(height: getFontSize(8, context)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: 10,
-                  height: 10,
+                  width: getFontSize(10, context),
+                  height: getFontSize(10, context),
                   decoration: BoxDecoration(
                     color: Color(0xff1BE43B),
                     borderRadius: BorderRadius.circular(50),
                   ),
                 ),
-                SizedBox(width: 12),
+                SizedBox(width: getFontSize(12, context)),
                 Text(
                   "All the medications were taken that day",
-                  style: TextStyle(fontSize: 14),
+                  style: TextStyle(fontSize: getFontSize(14, context)),
                 ),
               ],
             ),
