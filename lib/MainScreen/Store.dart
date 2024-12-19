@@ -6,6 +6,7 @@ import '../MainScreen/Dashboard.dart';
 import '../Store/prescription_orders.dart';
 import '../Store/purchase_device.dart';
 import '../Store/view_inventory.dart';
+import '../component/buttons.dart';
 
 class Store extends StatefulWidget {
   const Store({super.key});
@@ -15,6 +16,8 @@ class Store extends StatefulWidget {
 }
 
 class _StoreState extends State<Store> {
+  List<bool> networks = [false,false];
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -62,6 +65,38 @@ class _StoreState extends State<Store> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            GestureDetector(
+              onTap: () {
+                show_switch_network_sheet();
+              },
+              child:
+              Align(
+                alignment: Alignment.centerLeft,
+                child:
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal:15),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(18),
+                      border: Border.all(width: 1, color: Colors.blue)
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text("Main network", style: TextStyle(color: Colors.blue),),
+                      SizedBox(width: 8),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Color(0xffE2EDFF),
+                            shape: BoxShape.circle
+                        ),
+                        child: Icon(Icons.keyboard_arrow_down, color: Colors.blue,),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+
             Row(
                 children: [
                   actions(
@@ -78,7 +113,14 @@ class _StoreState extends State<Store> {
                   ),
                   actions(
                       context,
-                      Icons.search,
+                      Icons.edit_note_outlined,
+                      "Prescription orders",
+                      MaterialPageRoute(builder: (builder)=>PrescriptionOrders())
+                  ),
+
+                  actions(
+                      context,
+                      Icons.history,
                       "Prescription orders",
                       MaterialPageRoute(builder: (builder)=>PrescriptionOrders())
                   ),
@@ -181,7 +223,7 @@ class _StoreState extends State<Store> {
                       padding: EdgeInsets.all(8),
                       decoration:  BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Color(0xff4BA33D).withOpacity(0.50)
+                          color: Color(0xff4db551).withOpacity(0.50)
                       ),
                       child: icon_path is String ? SvgPicture.asset(icon_path, color: Colors.green,) : Icon(icon_path, color: Colors.green,) ,
                     ),
@@ -202,18 +244,141 @@ class _StoreState extends State<Store> {
             right: 7,
             top: 12,
             child: Container(
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration(color: Color(0xffE2EDFF),
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(color: const Color(0xffE2EDFF),
                     borderRadius: BorderRadius.circular(18)
                 ),
                 child:
-                Text("12 0ct 2022", style: TextStyle(fontSize: 10, color: Colors.blue),)
-            )
-        )
+                const Text("12 0ct 2022", style: TextStyle(fontSize: 10, color: Colors.blue),)
+            ),
+        ),
       ],
     );
   }
 
+  void show_switch_network_sheet() {
+    showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,// Allows the content to be scrollable
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius    .    vertical(
+            top: Radius.circular(20),
+          ),
+        ),
+        builder: (context) {
+          return DraggableScrollableSheet(
+              expand: false,
+              initialChildSize: 0.5,
+              // 50% of screen height
+              minChildSize: 0.3,
+              // Minimum height
+              maxChildSize: 0.8,
+              // Maximum height
+              builder: (_, controller) {
+                return Container(
+                    padding: EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(20),
+                      ),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text("Switch network", style: TextStyle(fontSize: 18),),
+                        SizedBox(height: 15,),
+                        network(
+                            path: "assets/images/net1.jpeg",
+                            name: "Main Network",
+                            index: 0
+                        ),
+                        network(
+                            path: "assets/images/net2.jpeg",
+                            name: "Surulere doctors ",
+                            index: 1
+                        ),
+                        Row(
+                            children: [
+                              SizedBox(
+                                width: (MediaQuery.of(context).size.width / 2) - 26,
+                                child:
+                                dark_blue_button(
+                                    context,
+                                    "Add Network"
+                                ),
+                              ),
+                              Spacer(),
+                              SizedBox(
+                                  width: (MediaQuery.of(context).size.width / 2) - 26,
+                                  child:
+                                  light_blue_button(
+                                      context,
+                                      "Add Network"
+                                  )
+                              )
+                            ]
+                        )
+                      ],
+                    )
+
+                );
+              }
+          );
+        }
+    );
+  }
+  network({required String path,
+    required String name,
+    required int index}) {
+    bool selected_network = networks[index];
+    return GestureDetector(
+        onTap: (){
+          setState(() {
+            networks[index] =!selected_network;
+            for (int i = 0; i < networks.length; i++){
+              if (i != index){
+                networks[i] = false;
+              }
+            }
+          });
+        },
+        child: Column(
+          children: [
+            Row(
+              children: [
+                SizedBox(
+                    width: 50,
+                    height: 50,
+
+                    child:
+                    CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage(path),
+                    )
+                ),
+                SizedBox(width: 10,),
+                Text(
+                  name,
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                ),
+                Spacer(),
+                Container(
+                  padding: EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: selected_network ? Colors.green : Colors.grey.shade300
+                  ),
+                  child: Icon(Icons.check, color: Colors.white),
+                )
+              ],
+            ),
+            Divider(color: Colors.black26,),
+            SizedBox(height: 16.0),
+          ],
+        )
+    );
+  }
 }
 orders(BuildContext context,
     String iconPath,
