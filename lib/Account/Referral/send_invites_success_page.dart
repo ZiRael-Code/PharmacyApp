@@ -1,13 +1,8 @@
 import '../../MainScreen/Dashboard.dart';
 
-
-
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
-
 
 import '../../MainScreen/MainNavigator.dart';
 import 'SendInvites.dart';
@@ -72,11 +67,18 @@ class SendInvitesSuccessPage extends StatelessWidget {
                 ),
               ),
               Spacer(),
-              GestureDetector(onTap: (){ Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(builder: (builder) => MainNavigator()), // Navigate to Login screen
-                    (Route<dynamic> route) => false, // Remove all previous routes
-              );
-                }, child:  MyBlueButton(text: "Done")),
+              GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(
+                          builder: (builder) => MainNavigator(
+                                index: 0,
+                              )), // Navigate to Login screen
+                      (Route<dynamic> route) =>
+                          false, // Remove all previous routes
+                    );
+                  },
+                  child: MyBlueButton(text: "Done")),
               SizedBox(
                 height: getFontSize(30, context),
               )

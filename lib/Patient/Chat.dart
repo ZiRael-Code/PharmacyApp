@@ -1,3 +1,4 @@
+import '../MainScreen/Dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -21,23 +22,23 @@ class _ChatState extends  State<Chat> {
               title: Row(
                 children: [
                   Container(
-                    width: 35,
-                    height: 35,
+                    width: getFontSize(35, context),
+                    height: getFontSize(35, context),
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
                       color: Color(0xFFE5E5E5),
                     ),
                     child: SvgPicture.asset('assets/images/back.svg',
-                      width: 8.0,
-                      height: 15,),
+                      width: getFontSize(8.0, context),
+                      height: getFontSize(15, context),),
                   ),
-                  SizedBox(width: 25,),
+                  SizedBox(width: getFontSize(25, context),),
                   Align(
                     alignment: Alignment.centerLeft,
                     child:
                     Column(children: [
-                      Text('Dr. Nelson Yang', style: TextStyle(fontSize: 18),),
+                      Text('Dr. Nelson Yang', style: TextStyle(fontSize: getFontSize(18, context)),),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -50,17 +51,17 @@ class _ChatState extends  State<Chat> {
                                   shape: BoxShape.circle,
                                   color: Color(0xFF218130)
                               ),
-                              width: 11,
-                              height: 11,
+                              width: getFontSize(11, context),
+                              height: getFontSize(11, context),
                             ),
                           ),
 
-                          SizedBox(width: 7,),
+                          SizedBox(width: getFontSize(7, context),),
                           Text(
                               'Active now',
                               style: TextStyle(
                                 color: Color(0xff2E2E42),
-                                fontSize: 16,
+                                fontSize: getFontSize(16, context),
                               ))],
                       ),
                     ],),),
@@ -80,7 +81,7 @@ class _ChatState extends  State<Chat> {
                     child: Icon(Icons.call, color: Colors.blue,),
                   ),
                   ),
-                  SizedBox(width: 12,),
+                  SizedBox(width: getFontSize(12, context),),
                   Container(
                     padding: EdgeInsets.all(14),
                     decoration: BoxDecoration(
@@ -96,7 +97,7 @@ class _ChatState extends  State<Chat> {
             body:
 
             Container(
-              padding: EdgeInsets.only(left: 15, right: 15, top: 25, bottom: 25),
+              padding: EdgeInsets.only(left: getFontSize(15, context), right: getFontSize(15, context), top: getFontSize(25, context), bottom: getFontSize(25, context)),
               child:
               Column(
                 children: [
@@ -106,9 +107,9 @@ class _ChatState extends  State<Chat> {
                         child:
                         Column(
                             children: [
-                              SizedBox(height: 20),
+                              SizedBox(height: getFontSize(20, context)),
                               Text("Wed 8:21 AM"),
-                              SizedBox(height: 70),
+                              SizedBox(height: getFontSize(70, context)),
 
                               incomingMessage(
                                   text: 'Hello, I’m Dr. Nelson! 👋How can I help you?'),
@@ -131,14 +132,14 @@ class _ChatState extends  State<Chat> {
                                     borderRadius: BorderRadius.circular(20),
                                     border: Border.all(
                                       color: Color(0x4D218130).withOpacity(0.070),
-                                      width: 2, // Border width
+                                      width: getFontSize(2, context), // Border width
                                     ),
                                   ),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       SvgPicture.asset('assets/images/pill1.svg'),
-                                      SizedBox(width: 8),
+                                      SizedBox(width: getFontSize(8, context)),
                                       // Text content
                                       Text(
                                         '12/06/2022 - ',
@@ -172,25 +173,25 @@ class _ChatState extends  State<Chat> {
                         child: TextField(
                           decoration: InputDecoration(
                             hintText: 'Type a message...',
-                            contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                            contentPadding: EdgeInsets.symmetric(vertical: getFontSize(15, context), horizontal: getFontSize(20, context)),
                             filled: true,
                             fillColor: Colors.white,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(40),
                               borderSide: BorderSide(
                                 color: Color(0x66BFBFBF),
-                                width: 0.5,
+                                width: getFontSize(0.5, context),
                               ),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(40),
                               borderSide: BorderSide(
                                 color: Color(0x66BFBFBF),
-                                width: 0.5,
+                                width: getFontSize(0.5, context),
                               ),
                             ),
                             suffixIcon: SizedBox(
-                              width: 96,
+                              width: getFontSize(96, context),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
@@ -211,11 +212,11 @@ class _ChatState extends  State<Chat> {
                         ),
                       ),
 
-                      SizedBox(width: 10),
+                      SizedBox(width: getFontSize(10, context)),
 
                       Container(
-                        width: 51,
-                        height: 51,
+                        width: getFontSize(51, context),
+                        height: getFontSize(51, context),
                         decoration: BoxDecoration(
                           color: Colors.blue,
                           shape: BoxShape.circle,
@@ -261,7 +262,7 @@ class _ChatState extends  State<Chat> {
                     child: Text(
                       text,
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: getFontSize(14, context),
                       ),
                       softWrap: true, // Ensure the text wraps when needed
                     ),
@@ -270,7 +271,7 @@ class _ChatState extends  State<Chat> {
               ],
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: getFontSize(20, context)),
         ],
       ),
     );
@@ -304,7 +305,7 @@ class _ChatState extends  State<Chat> {
                 child: Text(
                   text,
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: getFontSize(14, context),
                     color: Colors.white,
                   ),
                 ),
@@ -313,7 +314,7 @@ class _ChatState extends  State<Chat> {
           ],
         ),
       ),
-      SizedBox(height: 20,),
+      SizedBox(height: getFontSize(20, context),),
     ]
     );
   }
@@ -338,18 +339,18 @@ class _ChatState extends  State<Chat> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 18,
+                  fontSize: getFontSize(18, context),
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: getFontSize(20, context)),
               // Voice Call and Video Call Buttons
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   // Voice Call Button
                   Container(
-                    width: 86,
-                    height: 86,
+                    width: getFontSize(86, context),
+                    height: getFontSize(86, context),
                     decoration: BoxDecoration(
                       color: Color(0xffE2EDFF),
                       shape: BoxShape.circle,
@@ -358,7 +359,7 @@ class _ChatState extends  State<Chat> {
                       icon: Icon(
                         Icons.call,
                         color: Colors.blue,
-                        size: 46,
+                        size: getFontSize(46, context),
                       ),
                       onPressed: () {
                         // Handle voice call action
@@ -368,8 +369,8 @@ class _ChatState extends  State<Chat> {
                   ),
                   // Video Call Button
                   Container(
-                    width: 86,
-                    height: 86,
+                    width: getFontSize(86, context),
+                    height: getFontSize(86, context),
                     decoration: BoxDecoration(
                       color: Color(0xffE2EDFF),
                       shape: BoxShape.circle,
@@ -378,7 +379,7 @@ class _ChatState extends  State<Chat> {
                       icon: Icon(
                         Icons.video_call,
                         color: Colors.blue,
-                        size: 46,
+                        size: getFontSize(46, context),
                       ),
                       onPressed: () {
                         // Handle video call action

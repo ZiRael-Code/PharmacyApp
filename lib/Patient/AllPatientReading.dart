@@ -1,3 +1,4 @@
+import '../MainScreen/Dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -123,45 +124,45 @@ class _AllPatientState extends State<AllPatientReading> {
               Spacer(),
             ])),
         body: Padding(
-          padding: EdgeInsets.only(left: 16, right: 16, top: 25),
+          padding: EdgeInsets.only(left: getFontSize(16, context), right: getFontSize(16, context), top: getFontSize(25, context)),
           child: Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 10,
-                    height: 10,
+                    width: getFontSize(10, context),
+                    height: getFontSize(10, context),
                     decoration: BoxDecoration(
                         color: Color(0xffE5E5E5), shape: BoxShape.circle),
                   ),
                   SizedBox(
-                    width: 8,
+                    width: getFontSize(8, context),
                   ),
                   Text('Unchecked'),
                   SizedBox(
-                    width: 8,
+                    width: getFontSize(8, context),
                   ),
                   Container(
-                    width: 10,
-                    height: 10,
+                    width: getFontSize(10, context),
+                    height: getFontSize(10, context),
                     decoration: BoxDecoration(
                         color: Colors.green, shape: BoxShape.circle),
                   ),
                   SizedBox(
-                    width: 8,
+                    width: getFontSize(8, context),
                   ),
                   Text('Checked')
                 ],
               ),
               SizedBox(
-                height: 20,
+                height: getFontSize(20, context),
               ),
               Row(
                 children: [
                   // Search field
                   Container(
-                    padding: EdgeInsets.only(right: 10),
+                    padding: EdgeInsets.only(right: getFontSize(10, context)),
                     width: MediaQuery.of(context).size.width * 0.70,
                     decoration: BoxDecoration(
                       color: Colors.grey[200],
@@ -182,7 +183,7 @@ class _AllPatientState extends State<AllPatientReading> {
                         hintStyle: TextStyle(color: Colors.grey),
                         prefixIcon: Icon(Icons.search, color: Colors.grey),
                         border: InputBorder.none,
-                        contentPadding: EdgeInsets.symmetric(vertical: 15),
+                        contentPadding: EdgeInsets.symmetric(vertical: getFontSize(15, context)),
                       ),
                     ),
                   ),
@@ -195,7 +196,7 @@ class _AllPatientState extends State<AllPatientReading> {
                       });
                     },
                     child: Container(
-                      margin: EdgeInsets.only(left: 5),
+                      margin: EdgeInsets.only(left: getFontSize(5, context)),
                       padding: EdgeInsets.all(12),
                       decoration: BoxDecoration(
                         color: Colors.grey[200],
@@ -210,7 +211,7 @@ class _AllPatientState extends State<AllPatientReading> {
               ),
               if (isFilterOpen)
                 Container(
-                  margin: EdgeInsets.only(top: 16),
+                  margin: EdgeInsets.only(top: getFontSize(16, context)),
                   width: double.infinity,
                   padding: EdgeInsets.all(16),
                   decoration: BoxDecoration(),
@@ -221,10 +222,10 @@ class _AllPatientState extends State<AllPatientReading> {
                         "Filters",
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 18,
+                          fontSize: getFontSize(18, context),
                         ),
                       ),
-                      SizedBox(height: 20), //
+                      SizedBox(height: getFontSize(20, context)), //
                       Wrap(
                         spacing: 5, //
                         runSpacing: 8, //
@@ -255,7 +256,7 @@ class _AllPatientState extends State<AllPatientReading> {
                                   btnText[i],
                                   style: TextStyle(
                                       color: Color(0xff3C8AFF),
-                                      fontSize: 11.5), // Button text color
+                                      fontSize: getFontSize(11.5, context)), // Button text color
                                 ),
                               ),
                             ),
@@ -265,7 +266,7 @@ class _AllPatientState extends State<AllPatientReading> {
                   ),
                 ),
               SizedBox(
-                height: 20,
+                height: getFontSize(20, context),
               ),
               Expanded(
                   child: ListView(
@@ -314,12 +315,12 @@ class _AllPatientState extends State<AllPatientReading> {
     required bool isOnline,
   }) {
     return Container(
-      margin: EdgeInsets.only(bottom: 18),
+      margin: EdgeInsets.only(bottom: getFontSize(18, context)),
       padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12.0),
-          border: Border.all(width: 0.7, color: Colors.black12)),
+          border: Border.all(width: getFontSize(0.7, context), color: Colors.black12)),
       child: Stack(
         children: [
           Column(
@@ -327,7 +328,7 @@ class _AllPatientState extends State<AllPatientReading> {
             children: [
               // Label
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                padding: EdgeInsets.symmetric(horizontal: getFontSize(8.0, context), vertical: getFontSize(4.0, context)),
                 decoration: BoxDecoration(
                   color: regularityColor.withOpacity(0.15),
                   borderRadius: BorderRadius.circular(8.0),
@@ -339,7 +340,7 @@ class _AllPatientState extends State<AllPatientReading> {
                   ),
                 ),
               ),
-              SizedBox(height: 12.0),
+              SizedBox(height: getFontSize(12.0, context)),
               // User Information
               Row(
                 children: [
@@ -348,35 +349,35 @@ class _AllPatientState extends State<AllPatientReading> {
                         AssetImage(path), // Replace with your image asset
                     radius: 24.0,
                   ),
-                  SizedBox(width: 12.0),
+                  SizedBox(width: getFontSize(12.0, context)),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         name,
                         style: TextStyle(
-                          fontSize: 16.0,
+                          fontSize: getFontSize(16.0, context),
                         ),
                       ),
-                      SizedBox(height: 4.0),
+                      SizedBox(height: getFontSize(4.0, context)),
                       Text(
                         '$time · $date',
                         style: TextStyle(
                           color: Colors.grey,
-                          fontSize: 12.0,
+                          fontSize: getFontSize(12.0, context),
                         ),
                       ),
                     ],
                   ),
                 ],
               ),
-              SizedBox(height: 16.0),
+              SizedBox(height: getFontSize(16.0, context)),
               Padding(
-                  padding: EdgeInsets.only(right: 50),
+                  padding: EdgeInsets.only(right: getFontSize(50, context)),
                   child: Divider(
                     color: Colors.grey[300],
                   )),
-              SizedBox(height: 8.0),
+              SizedBox(height: getFontSize(8.0, context)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -384,36 +385,36 @@ class _AllPatientState extends State<AllPatientReading> {
                     children: [
                       Text(
                         'BP: ',
-                        style: TextStyle(color: Colors.blue, fontSize: 11),
+                        style: TextStyle(color: Colors.blue, fontSize: getFontSize(11, context)),
                       ),
-                      Text(bp, style: TextStyle(fontSize: 11)),
+                      Text(bp, style: TextStyle(fontSize: getFontSize(11, context))),
                     ],
                   ),
                   Row(
                     children: [
                       Text(
                         'HbA1c: ',
-                        style: TextStyle(color: Colors.blue, fontSize: 11),
+                        style: TextStyle(color: Colors.blue, fontSize: getFontSize(11, context)),
                       ),
-                      Text(hba1c, style: TextStyle(fontSize: 11)),
+                      Text(hba1c, style: TextStyle(fontSize: getFontSize(11, context))),
                     ],
                   ),
                   Row(
                     children: [
                       Text(
                         'IHRA: ',
-                        style: TextStyle(color: Colors.blue, fontSize: 11),
+                        style: TextStyle(color: Colors.blue, fontSize: getFontSize(11, context)),
                       ),
-                      Text(ihra, style: TextStyle(fontSize: 11)),
+                      Text(ihra, style: TextStyle(fontSize: getFontSize(11, context))),
                     ],
                   ),
                   Row(
                     children: [
                       Text(
                         'Oxygen: ',
-                        style: TextStyle(color: Colors.blue, fontSize: 11),
+                        style: TextStyle(color: Colors.blue, fontSize: getFontSize(11, context)),
                       ),
-                      Text(oxy, style: TextStyle(fontSize: 11)),
+                      Text(oxy, style: TextStyle(fontSize: getFontSize(11, context))),
                     ],
                   )
                 ],
@@ -421,10 +422,10 @@ class _AllPatientState extends State<AllPatientReading> {
             ],
           ),
           Positioned(
-              right: 0,
+              right: getFontSize(0, context),
               child: Container(
-                width: 13,
-                height: 13,
+                width: getFontSize(13, context),
+                height: getFontSize(13, context),
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: isOnline ? Colors.green : Colors.grey[300]),

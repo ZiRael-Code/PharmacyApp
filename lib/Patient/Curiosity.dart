@@ -1,3 +1,4 @@
+import '../MainScreen/Dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -46,7 +47,7 @@ class _CollapsibleCalendarState extends State<CollapsibleCalendar> with SingleTi
       appBar: AppBar(
         leading:
         Container(
-          margin: EdgeInsets.only(left: 10),
+          margin: EdgeInsets.only(left: getFontSize(10, context)),
           decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: Colors.white.withOpacity(0.40)
@@ -63,7 +64,7 @@ class _CollapsibleCalendarState extends State<CollapsibleCalendar> with SingleTi
          ),
            child: Icon(Icons.share, color: Colors.white,),
          ),
-          SizedBox(width: 10,)
+          SizedBox(width: getFontSize(10, context),)
         ],
         backgroundColor: color,
         title: Text('Collapsible Calendar'),
@@ -74,17 +75,17 @@ class _CollapsibleCalendarState extends State<CollapsibleCalendar> with SingleTi
           child: TabBar(
             controller: _tabController,
             indicator: BoxDecoration(
-              border: Border.all(color: Colors.white.withOpacity(0.60) , width: 2), // Gray border for selected tab
+              border: Border.all(color: Colors.white.withOpacity(0.60) , width: getFontSize(2, context)), // Gray border for selected tab
               // color: Colors.blue,
               shape: BoxShape.circle,
             ),
-            labelPadding: EdgeInsets.symmetric(horizontal: 10),
+            labelPadding: EdgeInsets.symmetric(horizontal: getFontSize(10, context)),
             indicatorSize: TabBarIndicatorSize.tab,
             tabs: List.generate(6, (index) {
               return Container(
                 padding: EdgeInsets.all(9),
-                width: 43,
-                height: 43,
+                width: getFontSize(43, context),
+                height: getFontSize(43, context),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.white.withOpacity(0.3), // Default semi-transparent color
@@ -117,31 +118,31 @@ class _CollapsibleCalendarState extends State<CollapsibleCalendar> with SingleTi
             headerStyle: HeaderStyle(
               formatButtonVisible: false,
               titleCentered: true,
-              rightChevronMargin: EdgeInsets.only(right: 69),
-              leftChevronMargin: EdgeInsets.only(left: 69),
+              rightChevronMargin: EdgeInsets.only(right: getFontSize(69, context)),
+              leftChevronMargin: EdgeInsets.only(left: getFontSize(69, context)),
               leftChevronIcon: Container(
                 alignment: Alignment.center,
-                height: 23,
-                width: 23,
+                height: getFontSize(23, context),
+                width: getFontSize(23, context),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.blue.withOpacity(0.20),
                 ),
-                child: Center(child: Icon(Icons.arrow_back_ios, color: Colors.blue, size: 15,),),
+                child: Center(child: Icon(Icons.arrow_back_ios, color: Colors.blue, size: getFontSize(15, context),),),
               ),
               rightChevronIcon: Container(
-                height: 23,
-                width: 23,
+                height: getFontSize(23, context),
+                width: getFontSize(23, context),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.blue.withOpacity(0.20),
                 ),
-                child: Center(child:  Icon(Icons.arrow_forward_ios_rounded, color: Colors.blue, size: 15,),),
+                child: Center(child:  Icon(Icons.arrow_forward_ios_rounded, color: Colors.blue, size: getFontSize(15, context),),),
               ),
             ),
             daysOfWeekStyle: DaysOfWeekStyle(
-                weekendStyle: TextStyle(color: Colors.black, fontSize: 14),
-                weekdayStyle: TextStyle(color: Colors.black, fontSize: 14),
+                weekendStyle: TextStyle(color: Colors.black, fontSize: getFontSize(14, context)),
+                weekdayStyle: TextStyle(color: Colors.black, fontSize: getFontSize(14, context)),
                 decoration: BoxDecoration()
             ),
             calendarStyle: CalendarStyle(
@@ -154,11 +155,11 @@ class _CollapsibleCalendarState extends State<CollapsibleCalendar> with SingleTi
                 color: Colors.blue,
                 shape: BoxShape.circle,
               ),
-              weekendTextStyle: TextStyle(color: Colors.black,fontSize: 20),
-              weekNumberTextStyle: TextStyle(fontSize: 20),
-              defaultTextStyle: TextStyle(fontSize: 20),
-              todayTextStyle: TextStyle(fontSize: 20, color: Colors.white),
-              disabledTextStyle: TextStyle(fontSize: 20, color: Colors.grey),
+              weekendTextStyle: TextStyle(color: Colors.black,fontSize: getFontSize(20, context)),
+              weekNumberTextStyle: TextStyle(fontSize: getFontSize(20, context)),
+              defaultTextStyle: TextStyle(fontSize: getFontSize(20, context)),
+              todayTextStyle: TextStyle(fontSize: getFontSize(20, context), color: Colors.white),
+              disabledTextStyle: TextStyle(fontSize: getFontSize(20, context), color: Colors.grey),
             ),
           ),
 
@@ -169,7 +170,7 @@ class _CollapsibleCalendarState extends State<CollapsibleCalendar> with SingleTi
               });
             },
             child: Container(
-                padding: EdgeInsets.only(right: 20),
+                padding: EdgeInsets.only(right: getFontSize(20, context)),
                 child:
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -181,13 +182,13 @@ class _CollapsibleCalendarState extends State<CollapsibleCalendar> with SingleTi
                 ),
                 child: Icon(isCollapsed ? Icons.keyboard_arrow_down_rounded : Icons.keyboard_arrow_up_rounded),
               ),
-              SizedBox(width: 5,),
+              SizedBox(width: getFontSize(5, context),),
               Text(isCollapsed ? 'Expand Calender': "Close Calender")
             ],
           )
           )
           ),
-          SizedBox(height: 20,),
+          SizedBox(height: getFontSize(20, context),),
           SvgPicture.asset('assets/images/vgraph.svg'),
 
       // TabBarView(
@@ -196,7 +197,7 @@ class _CollapsibleCalendarState extends State<CollapsibleCalendar> with SingleTi
       //   return Center(
       //     child: Text(
       //       'Content for Tab ${index + 1}',
-      //       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      //       style: TextStyle(fontSize: getFontSize(20, context), fontWeight: FontWeight.bold),
       //     ),
       //   );
       // }),
