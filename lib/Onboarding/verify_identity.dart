@@ -31,8 +31,8 @@ class VerifyIdentity extends StatelessWidget {
                   height: getFontSize(20, context),
                 ),
                 Container(
-                  width: 270,
-                  height: 75,
+                  width: getFontSize(270, context),
+                  height: getFontSize(75, context),
                   child: Text(
                     "Verify your identity as a medical specalist. You will be needed to upload or take a photo of your license.",
                     style: TextStyle(

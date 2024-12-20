@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../MainScreen/Dashboard.dart';
+
 class MessagesTile extends StatelessWidget {
   final String name;
   final String imagePath;
@@ -30,11 +32,11 @@ class MessagesTile extends StatelessWidget {
               ),
               if (status == "online")
                 Positioned(
-                  bottom: 0,
-                  right: 1,
+                  bottom: getFontSize(0, context),
+                  right: getFontSize(1, context),
                   child: Container(
-                    width: 12,
-                    height: 12,
+                    width: getFontSize(12, context),
+                    height: getFontSize(12, context),
                     decoration: BoxDecoration(
                       color: Colors.green,
                       shape: BoxShape.circle,
@@ -50,7 +52,7 @@ class MessagesTile extends StatelessWidget {
               Text(
                 name,
                 style:
-                    TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    TextStyle(fontWeight: FontWeight.bold, fontSize: getFontSize(16, context)),
               ),
               Container(
                 child: unreadCount > 0
@@ -60,20 +62,20 @@ class MessagesTile extends StatelessWidget {
                         child: Text(
                           "$unreadCount",
                           style: TextStyle(
-                              color: Colors.white, fontSize: 12),
+                              color: Colors.white, fontSize: getFontSize(12, context)),
                         ),
                       )
                     : Text("5min",
                         style:
-                            TextStyle(color: Colors.grey[600], fontSize: 12)),
+                            TextStyle(color: Colors.grey[600], fontSize: getFontSize(12, context))),
               )
             ],
           ),
           subtitle: Padding(
-            padding: EdgeInsets.only(top: 5),
+            padding: EdgeInsets.only(top: getFontSize(5, context)),
             child: Text(
               "After taking the prescribed medications...",
-              style: TextStyle(fontSize: 12),
+              style: TextStyle(fontSize: getFontSize(12, context)),
             ),
           ),
         ),

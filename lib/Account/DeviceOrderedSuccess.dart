@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../MainScreen/MainNavigator.dart';
 
 void main(){
   runApp(DeviceOrderSuccess());
@@ -29,6 +30,15 @@ class _SuccessScreen extends  State<DeviceOrderSuccess> {
               InkWell(
           onTap: () => Navigator.pop(context),
           child: 
+              InkWell(
+          onTap: () => Navigator.pop(context),
+          child: 
+              InkWell(
+          onTap: () => Navigator.pop(context),
+          child: 
+              InkWell(
+          onTap: () => Navigator.pop(context),
+          child: 
               Container(
                 width: getFontSize(35, context),
                 height: getFontSize(35, context),
@@ -41,6 +51,12 @@ class _SuccessScreen extends  State<DeviceOrderSuccess> {
                   width: getFontSize(8.0, context),
                   height: getFontSize(15, context),),
               ),
+              ),
+
+              ),
+
+              ),
+
               ),
 
               Spacer(),
@@ -91,7 +107,7 @@ class _SuccessScreen extends  State<DeviceOrderSuccess> {
             color: Color(0xFFE2EDFF),
             borderRadius: BorderRadius.circular(9),
           ),
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
+          padding: EdgeInsets.symmetric(horizontal: getFontSize(16.0, context)),
           child: DropdownButton<String>(
             value: _selectedValue,
             hint: Text(
@@ -123,7 +139,12 @@ class _SuccessScreen extends  State<DeviceOrderSuccess> {
         ),
         SizedBox(height: getFontSize(15, context),),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(builder: (builder) => MainNavigator(index: 3,)), // Navigate to Login screen
+                  (Route<dynamic> route) => false, // Remove all previous routes
+            );
+          },
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.blue,
             fixedSize: Size.fromWidth(MediaQuery.of(context).size.width),
@@ -132,7 +153,7 @@ class _SuccessScreen extends  State<DeviceOrderSuccess> {
             ),
           ),
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 24.0),
+            padding: EdgeInsets.symmetric(vertical: getFontSize(12.0, context), horizontal: getFontSize(24.0, context)),
             child: Text(
               'Done',
               style: TextStyle(color: Colors.white, fontSize: getFontSize(18, context)),

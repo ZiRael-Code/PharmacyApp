@@ -33,6 +33,7 @@ class _SearchPatientState extends State<SearchPatient> {
 
     return Scaffold(
       appBar: AppBar(
+          automaticallyImplyLeading: false,
         title: Row(
           children: [
             Container(

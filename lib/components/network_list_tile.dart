@@ -1,9 +1,10 @@
+import '../MainScreen/Dashboard.dart';
 import 'package:flutter/material.dart';
 
 class NetworkListTile extends StatefulWidget {
   final bool isChecked; // Add the isChecked property
 
-  const NetworkListTile({
+  NetworkListTile({
     super.key,
     this.isChecked = false, // Default value set to false
   });
@@ -24,40 +25,40 @@ class _NetworkListTileState extends State<NetworkListTile> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding: EdgeInsets.symmetric(horizontal: 15),
       child: Container(
         child: Column(
           children: [
-            const SizedBox(
-              height: 5,
+            SizedBox(
+              height: getFontSize(5, context),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const CircleAvatar(
+                CircleAvatar(
                   backgroundImage: AssetImage("assets/images/guild.png"),
                   radius: 25,
                 ),
-                const Column(
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: 20,
+                      height: getFontSize(20, context),
                     ),
                     Text(
                       "Guild of Nigerian Doctors",
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: getFontSize(16, context),
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     SizedBox(
-                      height: 14,
+                      height: getFontSize(14, context),
                     ),
                   ],
                 ),
-                const SizedBox(
-                  width: 40,
+                SizedBox(
+                  width: getFontSize(40, context),
                 ),
                 GestureDetector(
                   onTap: () {
@@ -66,28 +67,28 @@ class _NetworkListTileState extends State<NetworkListTile> {
                     });
                   },
                   child: Container(
-                    height: 24,
-                    width: 24,
+                    height: getFontSize(24, context),
+                    width: getFontSize(24, context),
                     decoration: BoxDecoration(
                       color: isChecked ? Colors.green : Colors.grey,
                       shape: BoxShape.circle,
                     ),
                     child: isChecked
-                        ? const Icon(
+                        ? Icon(
                             Icons.check,
                             color: Colors.white,
-                            size: 16,
+                            size: getFontSize(16, context),
                           )
                         : null,
                   ),
                 ),
               ],
             ),
-            const SizedBox(
-              height: 5,
+            SizedBox(
+              height: getFontSize(5, context),
             ),
             SizedBox(
-              width: 350,
+              width: getFontSize(350, context),
               child: Divider(
                 color: Colors.grey[300],
               ),

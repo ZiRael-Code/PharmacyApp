@@ -33,6 +33,15 @@ class _HealthStatisticScreen extends  State<HealthStatistic> with SingleTickerPr
               InkWell(
           onTap: () => Navigator.pop(context),
           child: 
+              InkWell(
+          onTap: () => Navigator.pop(context),
+          child: 
+              InkWell(
+          onTap: () => Navigator.pop(context),
+          child: 
+              InkWell(
+          onTap: () => Navigator.pop(context),
+          child: 
               Container(
                 width: getFontSize(35, context),
                 height: getFontSize(35, context),
@@ -45,6 +54,12 @@ class _HealthStatisticScreen extends  State<HealthStatistic> with SingleTickerPr
                   width: getFontSize(8.0, context),
                   height: getFontSize(15, context),),
               ),
+              ),
+
+              ),
+
+              ),
+
               ),
 
               Spacer(),
@@ -113,7 +128,7 @@ class _HealthStatisticScreen extends  State<HealthStatistic> with SingleTickerPr
             children: List.generate(tabLabels.length, (index) {
               bool isSelected = selectedIndex == index;
               return Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                padding: EdgeInsets.symmetric(horizontal: getFontSize(8.0, context)),
                 child: GestureDetector(
                   onTap: () {
                     setState(() {

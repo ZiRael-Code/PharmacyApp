@@ -1,3 +1,4 @@
+import '../MainScreen/Dashboard.dart';
 import 'package:flutter/material.dart';
 
 class MessagesTile extends StatelessWidget {
@@ -7,7 +8,7 @@ class MessagesTile extends StatelessWidget {
   final String status;
   final VoidCallback onTap;
 
-  const MessagesTile({
+  MessagesTile({
     super.key,
     required this.name,
     required this.imagePath,
@@ -30,11 +31,11 @@ class MessagesTile extends StatelessWidget {
               ),
               if (status == "online")
                 Positioned(
-                  bottom: 0,
-                  right: 1,
+                  bottom: getFontSize(0, context),
+                  right: getFontSize(1, context),
                   child: Container(
-                    width: 12,
-                    height: 12,
+                    width: getFontSize(12, context),
+                    height: getFontSize(12, context),
                     decoration: BoxDecoration(
                       color: Colors.green,
                       shape: BoxShape.circle,
@@ -50,7 +51,7 @@ class MessagesTile extends StatelessWidget {
               Text(
                 name,
                 style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    TextStyle(fontWeight: FontWeight.bold, fontSize: getFontSize(16, context)),
               ),
               Container(
                 child: unreadCount > 0
@@ -59,21 +60,21 @@ class MessagesTile extends StatelessWidget {
                         backgroundColor: Colors.blue,
                         child: Text(
                           "$unreadCount",
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 12),
+                          style: TextStyle(
+                              color: Colors.white, fontSize: getFontSize(12, context)),
                         ),
                       )
                     : Text("5min",
                         style:
-                            TextStyle(color: Colors.grey[600], fontSize: 12)),
+                            TextStyle(color: Colors.grey[600], fontSize: getFontSize(12, context))),
               )
             ],
           ),
-          subtitle: const Padding(
-            padding: EdgeInsets.only(top: 5),
+          subtitle: Padding(
+            padding: EdgeInsets.only(top: getFontSize(5, context)),
             child: Text(
               "After taking the prescribed medications...",
-              style: TextStyle(fontSize: 12),
+              style: TextStyle(fontSize: getFontSize(12, context)),
             ),
           ),
         ),
@@ -91,7 +92,7 @@ class MessagesTile extends StatelessWidget {
 class MessageDetailsPage extends StatelessWidget {
   final String contactName;
 
-  const MessageDetailsPage({super.key, required this.contactName});
+  MessageDetailsPage({super.key, required this.contactName});
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +100,7 @@ class MessageDetailsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(contactName),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
       ),

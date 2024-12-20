@@ -1,30 +1,38 @@
 import 'dart:io';
 
 void main() {
-  // Specify the folder to process
-  final directory = Directory('lib/Account');
-
-  // The import statement to add
-  const importStatement = "import '../MainScreen/Dashboard.dart';";
-
-  if (directory.existsSync()) {
-    directory.listSync(recursive: true).forEach((fileEntity) {
-      if (fileEntity is File && fileEntity.path.endsWith('.dart')) {
-        final lines = fileEntity.readAsLinesSync();
-
-        // Check if the import statement is already present
-        if (!lines.contains(importStatement)) {
-          // Add the import statement at the beginning of the file
-          final updatedContent = [importStatement, ...lines].join('\n');
-          fileEntity.writeAsStringSync(updatedContent);
-
-          print('Added import to ${fileEntity.path}');
-        } else {
-          print('Import already exists in ${fileEntity.path}');
-        }
-      }
-    });
-  } else {
+  final directory = Directory('lib/Account/Referral');
+  if (!directory.existsSync()) {
     print('The directory "lib" does not exist.');
+    return;
   }
+
+  directory.listSync(recursive: true).forEach((fileEntity) {
+    if (fileEntity is File && fileEntity.path.endsWith('.dart')) {
+      try {
+        final content = fileEntity.readAsStringSync();
+
+        // Remove the specific import statement
+        final updatedContent1 = content.replaceAll(
+          "import '../MainScreen/Dashboard.dart';",
+          '',
+        );
+        final updatedContent = content.replaceAll(
+          "import '../MainScreen/Dashboard.dart';",
+          '',
+        );
+
+        // Write back updated content if there's a change
+        if (updatedContent != content) {
+          fileEntity.writeAsStringSync(updatedContent);
+          print('Removed import from: ${fileEntity.path}');
+        }else if(updatedContent1 != content){
+          fileEntity.writeAsStringSync(updatedContent1);
+          print('Removed import from: ${fileEntity.path}');
+        }
+      } catch (e) {
+        print('Error processing file: ${fileEntity.path}, Error: $e');
+      }
+    }
+  });
 }

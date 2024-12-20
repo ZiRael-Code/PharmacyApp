@@ -24,8 +24,12 @@ class _AppointmentPaymentScreen extends  State<SelectPharmacy> {
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: Row(
             children: [
+              InkWell(
+          onTap: () => Navigator.pop(context),
+          child: 
               Container(
                 width: getFontSize(35, context),
                 height: getFontSize(35, context),
@@ -38,6 +42,8 @@ class _AppointmentPaymentScreen extends  State<SelectPharmacy> {
                   width: getFontSize(8.0, context),
                   height: getFontSize(15, context),),
               ),
+              ),
+
               Spacer(),
               Container(
                 alignment: Alignment.center,

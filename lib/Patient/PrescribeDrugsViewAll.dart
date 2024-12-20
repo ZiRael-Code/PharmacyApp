@@ -20,6 +20,7 @@ class _PrescribeDrugsViewAllState extends State<PrescribeDrugsViewAll> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+          automaticallyImplyLeading: false,
         title: Row(
           children: [
             Container(

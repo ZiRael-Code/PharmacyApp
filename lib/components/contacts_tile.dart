@@ -1,3 +1,4 @@
+import '../MainScreen/Dashboard.dart';
 import 'package:flutter/material.dart';
 
 class ContactsTile extends StatelessWidget {
@@ -5,7 +6,7 @@ class ContactsTile extends StatelessWidget {
   final String phonenumber;
   final VoidCallback onAddPatient; // Callback function
 
-  const ContactsTile({
+  ContactsTile({
     super.key,
     required this.name,
     required this.phonenumber,
@@ -17,21 +18,21 @@ class ContactsTile extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          const SizedBox(height: 5),
+          SizedBox(height: getFontSize(5, context)),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                width: 50,
-                height: 50,
-                decoration: const BoxDecoration(
+                width: getFontSize(50, context),
+                height: getFontSize(50, context),
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.black,
                 ),
                 child: Center(
                   child: Text(
                     name[0],
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -41,18 +42,18 @@ class ContactsTile extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 20),
+                  SizedBox(height: getFontSize(20, context)),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       name,
-                      style: const TextStyle(
-                        fontSize: 16,
+                      style: TextStyle(
+                        fontSize: getFontSize(16, context),
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
-                  const SizedBox(height: 2),
+                  SizedBox(height: getFontSize(2, context)),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -64,30 +65,30 @@ class ContactsTile extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(width: 10),
+              SizedBox(width: getFontSize(10, context)),
               Container(
-                width: 79,
-                height: 27,
+                width: getFontSize(79, context),
+                height: getFontSize(27, context),
                 decoration: BoxDecoration(
                   color: Colors.blue,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: TextButton(
                   onPressed: onAddPatient, // Trigger the callback
-                  child: const Text(
+                  child: Text(
                     "Add Patient",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 10,
+                      fontSize: getFontSize(10, context),
                     ),
                   ),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 5),
+          SizedBox(height: getFontSize(5, context)),
           SizedBox(
-            width: 350,
+            width: getFontSize(350, context),
             child: Divider(
               color: Colors.grey[300],
             ),

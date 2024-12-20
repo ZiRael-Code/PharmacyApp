@@ -1,13 +1,14 @@
+import '../MainScreen/Dashboard.dart';
 import 'package:flutter/material.dart';
 
 class MyBlueButton extends StatelessWidget {
   final String text;
-  const MyBlueButton({super.key, required this.text});
+  MyBlueButton({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(20),
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.blue,
@@ -16,8 +17,8 @@ class MyBlueButton extends StatelessWidget {
       child: Center(
         child: Text(
           text,
-          style: const TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+          style: TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: getFontSize(16, context)),
         ),
       ),
     );

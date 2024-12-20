@@ -23,6 +23,7 @@ class _PatientReadingState extends State<PatientReading>
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+          automaticallyImplyLeading: false,
         leading: InkWell(
           onTap: () {
             Navigator.pop(context);

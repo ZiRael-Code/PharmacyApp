@@ -315,8 +315,8 @@ class  _CreditDebitCardAddCardState extends State<CreditDebitCardAddCard>{
         filled: true,
         fillColor: Colors.grey[300],
         contentPadding: EdgeInsets.symmetric(
-        vertical: 15.0, // Adjust padding to control height
-        horizontal: 10.0,
+        vertical: getFontSize(15.0, context), // Adjust padding to control height
+        horizontal: getFontSize(10.0, context),
         ),
         border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8.0),

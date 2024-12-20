@@ -1,3 +1,4 @@
+import '../MainScreen/Dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -11,7 +12,7 @@ class vitals_reading_comp extends StatelessWidget {
   final String datestamp;
   final String timestamp;
   final Color color;
-  const vitals_reading_comp({
+  vitals_reading_comp({
     super.key,
     required this.deviceName,
     required this.name,
@@ -26,56 +27,56 @@ class vitals_reading_comp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          // Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const CollapsibleCalendar()));
+          // Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CollapsibleCalendar()));
         },
         child: Container(
-          margin: const EdgeInsets.all(9.0),
-          padding: const EdgeInsets.all(16.0),
+          margin: EdgeInsets.all(9.0),
+          padding: EdgeInsets.all(16.0),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(12.0),
-            border: Border.all(width: 0.7, color: Colors.black12),
+            border: Border.all(width: getFontSize(0.7, context), color: Colors.black12),
           ),
           child: Row(
             children: [
               Container(
                 decoration: BoxDecoration(
                     color: color, borderRadius: BorderRadius.circular(50)),
-                width: 50,
-                height: 50,
-                padding: const EdgeInsets.all(10),
+                width: getFontSize(50, context),
+                height: getFontSize(50, context),
+                padding: EdgeInsets.all(10),
                 child: SvgPicture.asset(iconPath),
               ),
-              const SizedBox(width: 12.0),
+              SizedBox(width: getFontSize(12.0, context)),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(name, style: const TextStyle(fontSize: 16)),
-                  const SizedBox(
-                    height: 10,
+                  Text(name, style: TextStyle(fontSize: getFontSize(16, context))),
+                  SizedBox(
+                    height: getFontSize(10, context),
                   ),
                   Text(
                     'Device: $deviceName',
-                    style: const TextStyle(fontSize: 10),
+                    style: TextStyle(fontSize: getFontSize(10, context)),
                   ),
                 ],
               ),
-              const Spacer(),
+              Spacer(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(reading,
-                      style: const TextStyle(
+                      style: TextStyle(
                           color: Colors.blue,
                           fontWeight: FontWeight.bold,
-                          fontSize: 16)),
-                  const SizedBox(
-                    height: 10,
+                          fontSize: getFontSize(16, context))),
+                  SizedBox(
+                    height: getFontSize(10, context),
                   ),
                   Text('$timestamp . $datestamp',
-                      style: const TextStyle(fontSize: 10)),
+                      style: TextStyle(fontSize: getFontSize(10, context))),
                 ],
               )
             ],

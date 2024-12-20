@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../MainScreen/Dashboard.dart';
-import '../Store/prescription_orders.dart';
+import '../Store/PrescriptionOrder.dart';
+import '../Store/SalesHistory.dart';
 import '../Store/purchase_device.dart';
 import '../Store/view_inventory.dart';
 import '../component/buttons.dart';
@@ -25,39 +26,17 @@ class _StoreState extends State<Store> {
         automaticallyImplyLeading: false,
         title: Row(
           children: [
-            InkWell(
-              onTap: () => Navigator.pop(context),
-              child:
-              Container(
-                width: getFontSize(35, context),
-                height: getFontSize(35, context),
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: Color(0xFFE5E5E5),
-                ),
-                child: SvgPicture.asset('assets/images/back.svg',
-                  width: getFontSize(8.0, context),
-                  height: getFontSize(15, context),),
-              ),
-            ),
-
+            Text(
+        'Ajaokuta Rx',
+          style: TextStyle(
+              fontSize: getFontSize(26, context),
+              fontStyle: FontStyle.normal,
+            fontWeight: FontWeight.w500
+          ),
+        ),
             Spacer(),
-            Container(
-              alignment: Alignment.center,
-              child:
-              Center(child: Text(
-                'Pharmacy',
-                style: TextStyle(
-                    fontSize: getFontSize(20, context),
-                    fontStyle: FontStyle.normal
-                ),
-              ),
-              ),
-            ),
-            Spacer(),
-
-          ],
+            SvgPicture.asset('assets/images/ico.svg')
+        ]
         ),
         centerTitle: true,
       ),
@@ -77,13 +56,13 @@ class _StoreState extends State<Store> {
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal:15),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18),
-                      border: Border.all(width: 1, color: Colors.blue)
+                      border: Border.all(width: getFontSize(1, context), color: Colors.blue)
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text("Main network", style: TextStyle(color: Colors.blue),),
-                      SizedBox(width: 8),
+                      SizedBox(width: getFontSize(8, context)),
                       Container(
                         decoration: BoxDecoration(
                             color: Color(0xffE2EDFF),
@@ -96,40 +75,69 @@ class _StoreState extends State<Store> {
                 ),
               ),
             ),
-
+            SizedBox(height: getFontSize(32, context),),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  actions(
-                    context,
-                    Icons.add,
-                    "Purchase devices",
-                    MaterialPageRoute(builder: (builder)=> PurchaseDevice()),
-                  ),
-                  actions(
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (builder) => PurchaseDevice()),
+                      );
+                    },
+                    child: actions(
                       context,
-                      "assets/images/inventory.svg",
-                      "View inventory",
-                      MaterialPageRoute(builder: (builder)=> ViewInventory())
+                      Icons.add,
+                      "Purchase devices",
+                    ),
                   ),
-                  actions(
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (builder) => ViewInventory()),
+                      );
+                    },
+                    child: actions(
+                      context,
+                      Icons.account_tree,
+                      "View inventory",
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (builder) => PrescriptionOrder()),
+                      );
+                    },
+                    child: actions(
                       context,
                       Icons.edit_note_outlined,
                       "Prescription orders",
-                      MaterialPageRoute(builder: (builder)=>PrescriptionOrders())
+                    ),
                   ),
-
-                  actions(
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (builder) => SalesHistory()),
+                      );
+                    },
+                    child: actions(
                       context,
                       Icons.history,
-                      "Prescription orders",
-                      MaterialPageRoute(builder: (builder)=>PrescriptionOrders())
+                      "Sales history",
+                    ),
                   ),
+
                 ]
             ),
 
-            SizedBox(height: 16,),
-            Text("Recent orders", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
-            SizedBox(height: 10,),
+            SizedBox(height: getFontSize(16, context),),
+            Text("Recent orders", style: TextStyle(fontSize: getFontSize(18, context), fontWeight: FontWeight.w500),),
+            SizedBox(height: getFontSize(10, context),),
             SingleChildScrollView(scrollDirection: Axis.horizontal,
               child:
               Row(
@@ -161,9 +169,9 @@ class _StoreState extends State<Store> {
                 ],
               ),
             ),
-            SizedBox(height: 25,),
-            Text("Activities", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
-            SizedBox(height: 25,),
+            SizedBox(height: getFontSize(25, context),),
+            Text("Activities", style: TextStyle(fontSize: getFontSize(18, context), fontWeight: FontWeight.w500),),
+            SizedBox(height: getFontSize(25, context),),
             Expanded(
                 child:
                 SingleChildScrollView(
@@ -210,7 +218,7 @@ class _StoreState extends State<Store> {
           width: double.infinity,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(width: 1, color: Colors.black12)
+              border: Border.all(width: getFontSize(1, context), color: Colors.black12)
           ),
           child: Container(
               padding: EdgeInsets.symmetric(vertical: 24, horizontal: 14),
@@ -227,10 +235,10 @@ class _StoreState extends State<Store> {
                       ),
                       child: icon_path is String ? SvgPicture.asset(icon_path, color: Colors.green,) : Icon(icon_path, color: Colors.green,) ,
                     ),
-                    const SizedBox(width: 12,),
+                     SizedBox(width: getFontSize(12, context),),
                     Container(
-                      width: 190,
-                      child: Text(des, style: const TextStyle(fontSize: 15),),
+                      width: getFontSize(190, context),
+                      child: Text(des, style:  TextStyle(fontSize: getFontSize(15, context)),),
                     )
                   ],
                 ),
@@ -241,15 +249,15 @@ class _StoreState extends State<Store> {
 
       ),
         Positioned(
-            right: 7,
-            top: 12,
+            right: getFontSize(7, context),
+            top: getFontSize(12, context),
             child: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(color: const Color(0xffE2EDFF),
                     borderRadius: BorderRadius.circular(18)
                 ),
                 child:
-                const Text("12 0ct 2022", style: TextStyle(fontSize: 10, color: Colors.blue),)
+                 Text("12 0ct 2022", style: TextStyle(fontSize: getFontSize(10, context), color: Colors.blue),)
             ),
         ),
       ],
@@ -286,8 +294,8 @@ class _StoreState extends State<Store> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text("Switch network", style: TextStyle(fontSize: 18),),
-                        SizedBox(height: 15,),
+                        Text("Switch network", style: TextStyle(fontSize: getFontSize(18, context)),),
+                        SizedBox(height: getFontSize(15, context),),
                         network(
                             path: "assets/images/net1.jpeg",
                             name: "Main Network",
@@ -348,8 +356,8 @@ class _StoreState extends State<Store> {
             Row(
               children: [
                 SizedBox(
-                    width: 50,
-                    height: 50,
+                    width: getFontSize(50, context),
+                    height: getFontSize(50, context),
 
                     child:
                     CircleAvatar(
@@ -357,10 +365,10 @@ class _StoreState extends State<Store> {
                       backgroundImage: AssetImage(path),
                     )
                 ),
-                SizedBox(width: 10,),
+                SizedBox(width: getFontSize(10, context),),
                 Text(
                   name,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                  style: TextStyle(fontSize: getFontSize(18, context), fontWeight: FontWeight.w400),
                 ),
                 Spacer(),
                 Container(
@@ -374,7 +382,7 @@ class _StoreState extends State<Store> {
               ],
             ),
             Divider(color: Colors.black26,),
-            SizedBox(height: 16.0),
+            SizedBox(height: getFontSize(16.0, context)),
           ],
         )
     );
@@ -386,12 +394,12 @@ orders(BuildContext context,
     String price, String by)
 {
   return Container(
-    margin: EdgeInsets.only(right: 10),
+    margin: EdgeInsets.only(right: getFontSize(10, context)),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(12),
       border: Border.all(
         color: Colors.grey.shade400,
-        width: 1,
+        width: getFontSize(1, context),
       ),
     ),
     child: Column(
@@ -404,20 +412,20 @@ orders(BuildContext context,
           Row(
             children: [
               SvgPicture.asset(iconPath,),
-              SizedBox(width: 7,),
-              Text("${date}-${type}", style: TextStyle(fontSize: 14, color: Colors.black45),)
+              SizedBox(width: getFontSize(7, context),),
+              Text("${date}-${type}", style: TextStyle(fontSize: getFontSize(14, context), color: Colors.black45),)
             ],
           ),
         ),
-        SizedBox(height: 7,),
+        SizedBox(height: getFontSize(7, context),),
         SvgPicture.asset("assets/images/line.svg", width: getFontSize(230, context),),
         Container(
             padding: EdgeInsets.all(10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(price, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22)),
-                SizedBox(height: 15,),
+                Text(price, style: TextStyle(fontWeight: FontWeight.bold, fontSize: getFontSize(22, context))),
+                SizedBox(height: getFontSize(15, context),),
                 Container(
                   padding: EdgeInsets.symmetric(vertical: 7, horizontal: 12),
                   decoration: BoxDecoration(
@@ -447,7 +455,7 @@ activity(BuildContext context, String icon_path, String text, String date) {
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: Colors.grey.shade400,
-          width: 1,
+          width: getFontSize(1, context),
         ),
       ),
       child: Column(
@@ -459,27 +467,24 @@ activity(BuildContext context, String icon_path, String text, String date) {
 }
 actions(
     BuildContext context,
-    icon,
-    String text,
-    MaterialPageRoute action
+    IconData icon,
+    String text
     ) {
-  return GestureDetector(
-      onTap: () {
-        Navigator.of(context).push(action);
-      },
+  return Container(
+      height: getFontSize(112, context),
       child: Column(
         children: [
           Container(
-            padding:  EdgeInsets.all( icon is String ? getFontSize(16, context) :  getFontSize(12, context) ),
+            padding:  EdgeInsets.all(getFontSize(12, context)),
             decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Color(0xffE2EDFF)
             ),
-            child: icon is String ? SvgPicture.asset(icon) : Icon(icon, size: getFontSize(36, context), color: Colors.blue,),
+            child: Icon(icon, size: getFontSize(36, context), color: Colors.blue,),
           ),
-          SizedBox(height: 12,),
+          SizedBox(height: getFontSize(12, context),),
           SizedBox(
-            width: 72,
+            width: getFontSize(65, context),
             child:  Text(text, textAlign: TextAlign.center, style: TextStyle(fontSize: getFontSize(13, context),  fontWeight: FontWeight.w400),),
           )
         ],

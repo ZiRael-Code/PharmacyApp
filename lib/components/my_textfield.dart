@@ -1,10 +1,11 @@
+import '../MainScreen/Dashboard.dart';
 import 'package:flutter/material.dart';
 
 class MyTextfield extends StatelessWidget {
   final String hinttext;
   final bool obscuretext;
   final IconButton? suffixicon;
-  const MyTextfield(
+  MyTextfield(
       {super.key,
       required this.hinttext,
       required this.obscuretext,
@@ -20,9 +21,9 @@ class MyTextfield extends StatelessWidget {
         decoration: InputDecoration(
           suffixIcon: suffixicon,
           hintText: hinttext,
-          hintStyle: const TextStyle(color: Colors.grey),
+          hintStyle: TextStyle(color: Colors.grey),
           filled: true,
-          fillColor: const Color(0xFFf0f0f0),
+          fillColor: Color(0xFFf0f0f0),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15.0),
             borderSide: BorderSide.none,

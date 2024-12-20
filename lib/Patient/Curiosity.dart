@@ -45,6 +45,7 @@ class _CollapsibleCalendarState extends State<CollapsibleCalendar> with SingleTi
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+          automaticallyImplyLeading: false,
         leading:
         Container(
           margin: EdgeInsets.only(left: getFontSize(10, context)),

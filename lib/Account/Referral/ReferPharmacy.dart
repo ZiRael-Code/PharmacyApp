@@ -3,7 +3,6 @@ import '../../MainScreen/Dashboard.dart';
 
 
 
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -85,7 +84,7 @@ class _ReferPharmacyState extends State<ReferPharmacy>
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 25),
+          padding: EdgeInsets.symmetric(horizontal: getFontSize(25, context)),
           child: Column(
             children: [
               SizedBox(height: getFontSize(40, context)),

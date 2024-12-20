@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../MainScreen/Dashboard.dart';
 import '../Patient/Curiosity.dart';
 
 
@@ -36,7 +37,7 @@ class vitals_reading_comp extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12.0),
-        border: Border.all(width: 0.7, color: Colors.black12),
+        border: Border.all(width: getFontSize(0.7, context), color: Colors.black12),
       ),
       child: Row(
         children: [
@@ -45,19 +46,19 @@ class vitals_reading_comp extends StatelessWidget {
                 color: color,
                 borderRadius: BorderRadius.circular(50)
             ),
-            width: 50,
-            height: 50,
+            width: getFontSize(50, context),
+            height: getFontSize(50, context),
             padding: EdgeInsets.all(10),
             child: SvgPicture.asset(iconPath),
           ),
-          SizedBox(width: 12.0),
+          SizedBox(width: getFontSize(12.0, context)),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(name, style: TextStyle(fontSize: 16)),
-              SizedBox(height: 10,),
-              Text('Device: $deviceName', style: TextStyle(fontSize: 10),),
+              Text(name, style: TextStyle(fontSize: getFontSize(16, context))),
+              SizedBox(height: getFontSize(10, context),),
+              Text('Device: $deviceName', style: TextStyle(fontSize: getFontSize(10, context)),),
             ],
           ),
           Spacer(),
@@ -65,9 +66,9 @@ class vitals_reading_comp extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text(reading, style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 16)),
-              SizedBox(height: 10,),
-              Text('$timestamp . $datestamp', style: TextStyle(fontSize: 10)),
+              Text(reading, style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: getFontSize(16, context))),
+              SizedBox(height: getFontSize(10, context),),
+              Text('$timestamp . $datestamp', style: TextStyle(fontSize: getFontSize(10, context))),
             ],
           )
         ],

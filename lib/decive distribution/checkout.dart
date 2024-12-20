@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../MainScreen/Dashboard.dart';
-import '../Specialist/DeviceOrderPayment.dart';
 import 'SelectPickupLocation.dart';
 import 'SelectYourLocation.dart';
 import 'payments.dart';

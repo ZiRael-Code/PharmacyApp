@@ -1,3 +1,4 @@
+import '../MainScreen/Dashboard.dart';
 import 'package:flutter/material.dart';
 
 class NetworkTile extends StatefulWidget {
@@ -7,7 +8,7 @@ class NetworkTile extends StatefulWidget {
   final bool initialJoined; // Initial state for the joined button
   final Function(bool joined)? onToggle; // Callback for state change
 
-  const NetworkTile({
+  NetworkTile({
     super.key,
     required this.name,
     required this.imagePath,
@@ -41,10 +42,10 @@ class _NetworkTileState extends State<NetworkTile> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Container(
-        width: 335,
-        height: 87,
+        width: getFontSize(335, context),
+        height: getFontSize(87, context),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(14),
           border: Border.all(color: Colors.grey.shade300),
@@ -60,20 +61,20 @@ class _NetworkTileState extends State<NetworkTile> {
             children: [
               Text(
                 widget.name,
-                style: const TextStyle(
+                style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 14,
+                  fontSize: getFontSize(14, context),
                 ),
               ),
               GestureDetector(
                 onTap: _toggleJoinStatus,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 24),
+                  padding: EdgeInsets.only(left: getFontSize(24, context)),
                   child: Container(
-                    width: 55,
-                    height: 30,
+                    width: getFontSize(55, context),
+                    height: getFontSize(30, context),
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                        EdgeInsets.symmetric(horizontal: 15, vertical: 8),
                     decoration: BoxDecoration(
                       color: _isJoined ? Colors.blue[100] : Colors.blue,
                       borderRadius: BorderRadius.circular(10),
@@ -82,7 +83,7 @@ class _NetworkTileState extends State<NetworkTile> {
                       _isJoined ? "Joined" : "Join",
                       style: TextStyle(
                         color: _isJoined ? Colors.blue : Colors.white,
-                        fontSize: 10,
+                        fontSize: getFontSize(10, context),
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -93,8 +94,8 @@ class _NetworkTileState extends State<NetworkTile> {
           ),
           subtitle: Text(
             widget.description,
-            style: const TextStyle(
-              fontSize: 10,
+            style: TextStyle(
+              fontSize: getFontSize(10, context),
               color: Colors.grey,
             ),
           ),

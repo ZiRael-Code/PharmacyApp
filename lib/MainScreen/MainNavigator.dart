@@ -47,8 +47,8 @@ class _MainNavigatorState extends State<MainNavigator> {
                 _selectedIndex == 0
                     ? 'assets/images/s_home.svg'
                     : 'assets/images/un_home.svg',
-                width: 28,
-                height: 28,
+                width: getFontSize(28, context),
+                height: getFontSize(28, context),
               ),
               label: 'Home',
             ),
@@ -57,28 +57,28 @@ class _MainNavigatorState extends State<MainNavigator> {
                 _selectedIndex == 1
                     ? 'assets/images/s_patient.svg'
                     : 'assets/images/un_patient.svg',
-                width: 28,
-                height: 28,
+                width: getFontSize(28, context),
+                height: getFontSize(28, context),
               ),
               label: 'Patients',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                _selectedIndex == 3
-                    ? 'assets/images/s_pharmacy.svg'
-                    : 'assets/images/un_pharmacy.svg',
-                width: 28,
-                height: 28,
+                _selectedIndex == 2
+                    ? 'assets/images/s_store.svg'
+                    : 'assets/images/un_store.svg',
+                width: getFontSize(28, context),
+                height: getFontSize(28, context),
               ),
-              label: 'Pharmacy',
+              label: 'Store',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 _selectedIndex == 3
-                    ? 'assets/images/un_account.svg'
-                    : 'assets/images/s_account.svg',
-                width: 28,
-                height: 28,
+                    ? 'assets/images/s_account.svg'
+                    : 'assets/images/un_account.svg',
+                width: getFontSize(28, context),
+                height: getFontSize(28, context),
               ),
               label: 'Account',
             ),

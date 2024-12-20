@@ -1,8 +1,9 @@
+import '../MainScreen/Dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ItemTile extends StatefulWidget {
-  const ItemTile({super.key});
+  ItemTile({super.key});
 
   @override
   State<ItemTile> createState() => _ItemTileState();
@@ -12,21 +13,21 @@ class _ItemTileState extends State<ItemTile> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 15),
+      padding: EdgeInsets.only(right: getFontSize(15, context)),
       child: Container(
-        width: 195,
-        height: 325,
+        width: getFontSize(195, context),
+        height: getFontSize(325, context),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             border: Border.all(color: Colors.grey.shade300)),
         child: Column(
           children: [
             SizedBox(
-              height: 30,
+              height: getFontSize(30, context),
             ),
             Container(
-              width: 112,
-              height: 112,
+              width: getFontSize(112, context),
+              height: getFontSize(112, context),
               decoration: BoxDecoration(
                   color: Colors.grey[200], shape: BoxShape.circle),
               child: CircleAvatar(
@@ -34,18 +35,18 @@ class _ItemTileState extends State<ItemTile> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: getFontSize(20, context),
             ),
             Text(
               "Wellue BP2 connect device",
-              style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+              style: TextStyle(fontSize: getFontSize(12, context), fontWeight: FontWeight.w500),
             ),
             SizedBox(
-              height: 10,
+              height: getFontSize(10, context),
             ),
             Container(
-              width: 112,
-              height: 26,
+              width: getFontSize(112, context),
+              height: getFontSize(26, context),
               decoration: BoxDecoration(
                   color: Colors.grey[200],
                   borderRadius: BorderRadius.circular(8)),
@@ -53,41 +54,41 @@ class _ItemTileState extends State<ItemTile> {
                 child: Text(
                   "Measures 1 vital",
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: getFontSize(12, context),
                   ),
                 ),
               ),
             ),
             SizedBox(
-              height: 10,
+              height: getFontSize(10, context),
             ),
             Text(
               "N25,000",
               style: TextStyle(
                   color: Colors.blue,
                   fontWeight: FontWeight.bold,
-                  fontSize: 20),
+                  fontSize: getFontSize(20, context)),
             ),
             SizedBox(
-              height: 15,
+              height: getFontSize(15, context),
             ),
             Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
                   border: Border.all(color: Colors.blue.shade100)),
-              width: 102.87,
-              height: 30.46,
+              width: getFontSize(102.87, context),
+              height: getFontSize(30.46, context),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
                     decoration: BoxDecoration(
                         color: Colors.blue[100], shape: BoxShape.circle),
-                    width: 15.8,
-                    height: 15.8,
+                    width: getFontSize(15.8, context),
+                    height: getFontSize(15.8, context),
                     child: Icon(
                       Icons.remove,
-                      size: 12,
+                      size: getFontSize(12, context),
                       color: Colors.blue,
                     ),
                   ),
@@ -98,11 +99,11 @@ class _ItemTileState extends State<ItemTile> {
                   Container(
                     decoration: BoxDecoration(
                         color: Colors.blue[100], shape: BoxShape.circle),
-                    width: 15.8,
-                    height: 15.8,
+                    width: getFontSize(15.8, context),
+                    height: getFontSize(15.8, context),
                     child: Icon(
                       Icons.add,
-                      size: 12,
+                      size: getFontSize(12, context),
                       color: Colors.blue,
                     ),
                   ),
@@ -110,7 +111,7 @@ class _ItemTileState extends State<ItemTile> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: getFontSize(20, context),
             )
           ],
         ),
